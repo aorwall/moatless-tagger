@@ -17,6 +17,19 @@ await build({
   sourcemap: true,
 });
 
+// Build webpack loader as CommonJS for compatibility
+// Webpack loaders traditionally use CommonJS (require/module.exports)
+await build({
+  entryPoints: ["src/webpack.ts"],
+  outfile: "dist/webpack.cjs",
+  bundle: true,
+  format: "cjs",
+  platform: "node",
+  target: "node18",
+  external: ["@babel/parser", "estree-walker", "magic-string"],
+  sourcemap: true,
+});
+
 // The tagger directory will have both JS and .d.ts files from TypeScript
 // We keep the .d.ts files but the bundled tagger.js is what gets imported at runtime
 

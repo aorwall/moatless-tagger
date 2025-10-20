@@ -12,7 +12,8 @@
     },
     "./webpack": {
       "types": "./dist/webpack.d.ts",
-      "import": "./dist/webpack.js"
+      "require": "./dist/webpack.cjs",
+      "import": "./dist/webpack.cjs"
     },
     "./vite": {
       "types": "./dist/vite.d.ts",
