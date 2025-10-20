@@ -1,0 +1,82 @@
+{
+  "name": "@moatless/tagger",
+  "version": "0.1.0",
+  "description": "Automatic JSX component tagging for AI-assisted coding platforms",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./webpack": {
+      "types": "./dist/webpack.d.ts",
+      "import": "./dist/webpack.js"
+    },
+    "./vite": {
+      "types": "./dist/vite.d.ts",
+      "import": "./dist/vite.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "bun run clean && bun run build:types && bun run build:bundle",
+    "build:types": "tsc",
+    "build:bundle": "node build.js",
+    "build:dev": "bun run clean && bun run build:bundle && tsc --sourceMap",
+    "clean": "rm -rf dist",
+    "test": "vitest",
+    "type:check": "tsc --noEmit",
+    "biome:check": "biome check .",
+    "biome:fix": "biome check --write .",
+    "prepare": "bun run build",
+    "prepublishOnly": "bun run build"
+  },
+  "keywords": [
+    "vite",
+    "webpack",
+    "plugin",
+    "component",
+    "tagger",
+    "jsx",
+    "tsx",
+    "react",
+    "ai",
+    "development"
+  ],
+  "author": "Albert Örwall",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aorwall/moatless-tagger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aorwall/moatless-tagger/issues"
+  },
+  "homepage": "https://github.com/aorwall/moatless-tagger#readme",
+  "dependencies": {
+    "@babel/parser": "^7.26.3",
+    "estree-walker": "^3.0.3",
+    "magic-string": "^0.30.17"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.6",
+    "@types/node": "^24.7.2",
+    "esbuild": "^0.24.2",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.9",
+    "vitest": "^3.2.4"
+  },
+  "peerDependencies": {
+    "vite": "^5.0.0 || ^6.0.0 || ^7.0.0"
+  },
+  "peerDependenciesMeta": {
+    "vite": {
+      "optional": true
+    }
+  }
+}
