@@ -21,7 +21,10 @@
     }
   },
   "files": [
-    "dist",
+    "dist/*.js",
+    "dist/*.cjs",
+    "dist/*.d.ts",
+    "dist/*.map",
     "README.md"
   ],
   "scripts": {
@@ -34,7 +37,6 @@
     "type:check": "tsc --noEmit",
     "biome:check": "biome check .",
     "biome:fix": "biome check --write .",
-    "prepare": "bun run build",
     "prepublishOnly": "bun run build"
   },
   "keywords": [
@@ -51,6 +53,9 @@
   ],
   "author": "Albert Örwall",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/aorwall/moatless-tagger.git"
