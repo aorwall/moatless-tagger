@@ -55,6 +55,7 @@ export default function componentTagger(options: VitePluginOptions = {}): Plugin
 
   return {
     name: "component-tagger",
+    enforce: 'pre',
 
     configResolved(config) {
       isDev = config.mode === "development";
