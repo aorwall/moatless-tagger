@@ -19,6 +19,7 @@ await build({
 
 // Build webpack loader as CommonJS for compatibility
 // Webpack loaders traditionally use CommonJS (require/module.exports)
+// Bundle estree-walker and magic-string to avoid ESM resolution issues
 await build({
   entryPoints: ["src/webpack.ts"],
   outfile: "dist/webpack.cjs",
@@ -26,7 +27,7 @@ await build({
   format: "cjs",
   platform: "node",
   target: "node18",
-  external: ["@babel/parser", "estree-walker", "magic-string"],
+  external: ["@babel/parser"],
   sourcemap: true,
 });
 
